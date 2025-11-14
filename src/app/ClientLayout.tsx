@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import './globals.css'
 import { ReactNode } from 'react'
 import { AuthProvider, useAuth } from '../context/AuthContext'
@@ -12,17 +14,17 @@ function Navbar() {
             <nav className="container mx-auto flex justify-between items-center">
                 <h1 className="font-bold text-xl">Modellismo</h1>
                 <div className="space-x-4">
-                    <a href="/" className="hover:underline">Home</a>
-                    <a href="/community" className="hover:underline">Community</a>
-                    <a href="/companies" className="hover:underline">Aziende</a>
+                    <Link href="/" className="hover:underline">Home</Link>
+                    <Link href="/community" className="hover:underline">Community</Link>
+                    <Link href="/companies" className="hover:underline">Aziende</Link>
 
                     {user ? (
                         <>
-                            <a href="/profile" className="hover:underline">{user.name}</a>
+                            <Link href="/profile" className="hover:underline">{user.name}</Link>
                             <button onClick={logout} className="hover:underline">Logout</button>
                         </>
                     ) : (
-                        <a href="/login" className="hover:underline">Login</a>
+                        <Link href="/login" className="hover:underline">Login</Link>
                     )}
                 </div>
             </nav>
